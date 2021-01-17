@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 import { IProducts, Size } from '../../types/product.types';
-import { apiFeatures } from '../../utils/apiFeatures';
 import { brandFilter, sizeFilter } from '../../utils/filterData';
 
 import './sidebar.css';

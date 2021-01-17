@@ -5,9 +5,9 @@ import './showcase.css';
 
 interface IProps { products: Array<IProducts>, loading: Boolean }
 
-function renderCards() {
+// function renderCards() {
 
-}
+// }
 
 const Showcase: FC<IProps> = ({products, loading}: IProps): JSX.Element => {
     return (
@@ -15,7 +15,7 @@ const Showcase: FC<IProps> = ({products, loading}: IProps): JSX.Element => {
            { loading ?
             <div> Loading.... </div> : 
             <div> { products?.map((product: IProducts) => {
-                return ( <div key={product.id}> {product.price} </div> )
+                return ( <div key={product.id}> {product.price} {' '} {product.product} </div> )
             }) } </div> }
        </div>
     );

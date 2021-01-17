@@ -12,8 +12,6 @@ export const brandFilter: Function = (products: Array<IProducts>, specifications
                 return filtered;
             })
         })
-
-        console.log(filtered);
         return filtered;
     }
     return products;
@@ -22,7 +20,6 @@ export const brandFilter: Function = (products: Array<IProducts>, specifications
 export const sizeFilter: Function = (products: Array<IProducts>, specifications:Array<Size>):Array<IProducts> => {
     const filtered: Array<IProducts> = [];
     let map =  new Map();
-    console.log(specifications);
     if(specifications.length > 0) {
         products.filter((product: IProducts) => {
             return specifications.map((specification: Size) => {
