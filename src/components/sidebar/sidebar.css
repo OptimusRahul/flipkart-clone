@@ -1,7 +1,8 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: 15rem;
+    min-width: 15rem;
+    padding: 1rem;
 }
 
 li {
@@ -19,5 +20,4 @@ li {
 .sidebar--header > button {
     width: 90px;
     height: 20px;
-    margin-right: 2px;
 }

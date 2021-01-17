@@ -1,6 +1,6 @@
 [{
     "id": 1,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8amVhbnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Loius Philip",
     "product": "product-1",
     "product_desc": "Product Description",
@@ -12,7 +12,7 @@
 },
 {
     "id": 2,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1541840031508-326b77c9a17e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8amVhbnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Peter England",
     "product": "product-2",
     "product_desc": "Product Description",
@@ -25,7 +25,7 @@
 },
 {
     "id": 3,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1542574621-e088a4464f7e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGplYW5zfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Levis",
     "product": "product-3",
     "product_desc": "Product Description",
@@ -37,7 +37,7 @@
 },
 {
     "id": 4,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8amVhbnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Wrangler",
     "product": "product-4",
     "product_desc": "Product Description",
@@ -49,7 +49,7 @@
 },
 {
     "id": 5,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1598032895397-b9472444bf93?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Levis",
     "product": "product-5",
     "product_desc": "Product Description",
@@ -61,7 +61,7 @@
 },
 {
     "id": 6,
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8c2hpcnR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "brand": "Levis",
     "product": "product-6",
     "product_desc": "Product Description",
@@ -69,17 +69,5 @@
     "original_price": "3900",    
     "discount": "19",
     "size": ["S", "M", "XL"],
-    "gender": "Female"
-},
-{
-    "id": 7,
-    "image": "",
-    "brand": "Loius Philip",
-    "product": "product-7",
-    "product_desc": "Product Description",
-    "price": "799",
-    "original_price": "3900",    
-    "discount": "19",
-    "size": ["S", "M", "L", "XL"],
     "gender": "Female"
 }]

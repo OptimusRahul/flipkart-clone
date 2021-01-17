@@ -1,0 +1,32 @@
+.product--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.products--card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2rem 0;
+    height: 20rem;
+    width: 20rem;
+    box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
+            
+}
+
+.products--card__price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.products--card__original {
+    text-decoration: line-through;
+}
+
+.products--card__discount {
+    color: green;
+}

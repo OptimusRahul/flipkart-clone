@@ -1,0 +1,11 @@
+.sort--menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.sort--menu > div :hover {
+    margin-bottom: blue;   
+}

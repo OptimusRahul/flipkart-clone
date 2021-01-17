@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
-import { IProducts, Size } from '../../types/product.types';
-import { brandFilter, sizeFilter } from '../../utils/filterData';
+import { IProducts, Size, Gender } from '../../types/product.types';
+import { brandFilter, sizeFilter, genderFilter } from '../../utils/filterData';
 
 import './sidebar.css';
 
@@ -14,11 +14,15 @@ interface Props {
 }
 
 const sizes:Array<Size> = ['S', 'M', 'L', 'XL']
+const gender: Array<Gender> = ['Male', 'Female']
 
 let filterBrands:Array<string> = [];
 let filterSizes: Array<Size> = [];
+let filterGender: Array<Gender> = [];
 
 const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, renderProductList }: Props): JSX.Element => {
+    const [ check, setCheck ] = useState<Boolean>();
+
     let brands = new Map();
 
     if(products) {
@@ -29,6 +33,20 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
         })        
     }
 
+    const setClearHandler = () => {
+        filterBrands = [];
+        filterSizes = [];
+        filterGender = [];
+        setRenderingProductsHandler(products);
+    }
+
+    const setCheckedHandler = (name: any) => {
+        if(filterBrands.includes(name) || filterSizes.includes(name) || filterGender.includes(name)) {
+            return true;
+        }
+        return false;
+    }
+
     const getBrandSpecific: Function = (brand: string) => {
         if(!filterBrands.includes(brand)) {
             filterBrands.push(brand);
@@ -36,8 +54,19 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
             filterBrands.splice(filterBrands.indexOf(brand),1);
         }
 
-        console.log(sizeFilter(renderProductList, filterSizes));
-        setRenderingProductsHandler(brandFilter(renderProductList, filterBrands))
+        let filterData;
+        if(filterBrands.length > 0) {
+            filterData = brandFilter(products, filterBrands);
+            if(filterSizes.length > 0) {
+                filterData = sizeFilter(filterData, filterSizes);
+            }
+            if(filterGender.length > 0) {
+                filterData = genderFilter(filterData, filterGender);
+            }
+            setRenderingProductsHandler(filterData)
+        } else {
+            setRenderingProductsHandler(products)
+        }
     }
 
     const getSizeSizeSpecific: Function = (size: Size) => {
@@ -46,8 +75,40 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
         } else {
             filterSizes.splice(filterSizes.indexOf(size),1);
         }
-        console.log(sizeFilter(renderProductList, filterSizes))
-        setRenderingProductsHandler(sizeFilter(renderProductList, filterSizes))        
+        let filterData;
+        if(filterSizes.length > 0) {
+            filterData = sizeFilter(products, filterSizes);
+            if(filterBrands.length > 0) {
+                filterData = brandFilter(filterData, filterBrands);
+            }
+            if(filterGender.length > 0) {
+                filterData = genderFilter(filterData, filterGender);
+            }
+            setRenderingProductsHandler(filterData)
+        } else {
+            setRenderingProductsHandler(products)
+        }
+    }
+
+    const getGenderSpecific: Function = (gender:Gender) => {
+        if(!filterGender.includes(gender)) {
+            filterGender.push(gender)
+        } else {
+            filterGender.splice(filterGender.indexOf(gender), 1);
+        }
+        let filterData;
+        if(filterGender.length > 0) {
+            filterData = genderFilter(products, filterGender);
+            if(filterBrands.length > 0) {
+                filterData = brandFilter(filterData, filterBrands);
+            }
+            if(filterSizes.length > 0) {
+                filterData = sizeFilter(filterData, filterSizes);
+            }
+            setRenderingProductsHandler(filterData)
+        } else {
+            setRenderingProductsHandler(products)
+        }
     }
 
     function renderList(product: Array<string>, name: string, callbackFn: Function) {
@@ -55,7 +116,12 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
             return (
                 <li key={index}> 
                     <label>
-                        <input type="checkbox" name={name} onClick={() => callbackFn(productSpecification)}/>
+                        <input 
+                            type="checkbox" 
+                            name={name}
+                            checked={setCheckedHandler(productSpecification)}
+                            onChange={() => setCheckedHandler(productSpecification)}
+                            onClick={() => callbackFn(productSpecification)}/>
                         {productSpecification}
                     </label>
                 </li>
@@ -67,7 +133,7 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
         <div className="sidebar">
             <div className="sidebar--header">
                 <h2 className="sidebar--header__heading"> Filters </h2>
-                <button > Clear Filters </button>
+                <button onClick={setClearHandler} > Clear Filters </button>
             </div>
             <div className="sidebar--filter__brands">
                 <h3 className="sidebar--filter--brands__headings"> Brands </h3>
@@ -83,6 +149,14 @@ const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, re
                     loading ? 
                         <p> Loading... </p> : 
                         <ul> {renderList(sizes, 'sizes', getSizeSizeSpecific)} </ul>
+                }
+            </div>
+            <div className="sidebar--filter__sizes">
+                <h3 className="sidebar--filter--sizes__heading"> Sizes </h3>
+                {
+                    loading ? 
+                        <p> Loading... </p> : 
+                        <ul> {renderList(gender, 'sizes', getGenderSpecific)} </ul>
                 }
             </div>
         </div>

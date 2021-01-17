@@ -17,7 +17,6 @@ const Navbar: FC = (): JSX.Element => (
             <div className="header--btn__more"> More </div>
             <div className="header--btn__cart"> Cart </div>
         </div>
-        
     </div>
 )
 

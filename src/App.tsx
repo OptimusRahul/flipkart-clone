@@ -1,13 +1,17 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import Navbar from './components/navbar/navbar';
+import Sort from './components/sort/sort';
 import Sidebar from './components/sidebar/sidebar';
 import Showcase from './components/showcase/showcase';
+
+import { getData } from './api';
 
 import { IProducts } from './types/product.types';
 import { apiFeatures } from './utils/apiFeatures';
 import './App.css';
 
+const productsAPIData: Array<IProducts> = getData();
 const App: FC = ():JSX.Element => {
 
   const [ products, setProducts ] = useState<Array<IProducts>>([]);
@@ -15,12 +19,10 @@ const App: FC = ():JSX.Element => {
   const [ loading, setLoading ] = useState<Boolean>(true);
 
   useEffect(() => {
-    console.log('useEffect');
-    const productAPIData = apiFeatures();
     setTimeout(() => {
       setLoading(false);
-      setProducts(productAPIData);
-      setRenderingProductList(productAPIData)
+      setProducts(productsAPIData);
+      setRenderingProductList(productsAPIData)
     }, 2000);
   }, []);
 
@@ -32,17 +34,19 @@ const App: FC = ():JSX.Element => {
 
   return (
     <div>
-        <Navbar />
-        <div className="main">
-          <Sidebar  
-            products={products}
-            renderProductList={renderProductList}
-            loading={loading} 
-            setRenderingProductsHandler={setRenderingProductsHandler} 
-            setLoadingHandler={setLoadingHandler} />
-          <Showcase products={renderProductList} loading={loading}/>
-        </div>
-        <div>Footer</div>
+      <Navbar />
+      <div className="main">
+        <Sidebar  
+          products={products}
+          renderProductList={renderProductList}
+          loading={loading} 
+          setRenderingProductsHandler={setRenderingProductsHandler}
+          setLoadingHandler={setLoadingHandler} />
+          <div className="main--container">
+            <Sort products={products} setRenderingProductsHandler={setRenderingProductsHandler}/>
+            <Showcase products={renderProductList} loading={loading}/>
+          </div>
+      </div>
     </div>
   );
 }
