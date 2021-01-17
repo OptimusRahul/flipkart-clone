@@ -1,0 +1,85 @@
+[{
+    "id": 1,
+    "image": "",
+    "brand": "Loius Philip",
+    "product": "product-1",
+    "product_desc": "Product Description",
+    "price": "999",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["S", "M", "L", "XL"],
+    "gender": "Male"
+},
+{
+    "id": 2,
+    "image": "",
+    "brand": "Peter England",
+    "product": "product-2",
+    "product_desc": "Product Description",
+    "price": "1899",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["S", "XL"],
+    "gender": "Female"
+    
+},
+{
+    "id": 3,
+    "image": "",
+    "brand": "Levis",
+    "product": "product-3",
+    "product_desc": "Product Description",
+    "price": "499",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["L", "XL"],
+    "gender": "Female"
+},
+{
+    "id": 4,
+    "image": "",
+    "brand": "Wrangler",
+    "product": "product-4",
+    "product_desc": "Product Description",
+    "price": "699",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["S", "M"],
+    "gender": "Male"
+},
+{
+    "id": 5,
+    "image": "",
+    "brand": "Levis",
+    "product": "product-5",
+    "product_desc": "Product Description",
+    "price": "2449",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["M", "L"],
+    "gender": "Male"
+},
+{
+    "id": 6,
+    "image": "",
+    "brand": "Levis",
+    "product": "product-6",
+    "product_desc": "Product Description",
+    "price": "1299",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["S", "M", "XL"],
+    "gender": "Female"
+},
+{
+    "id": 7,
+    "image": "",
+    "brand": "Loius Philip",
+    "product": "product-7",
+    "product_desc": "Product Description",
+    "price": "799",
+    "original_price": "3900",    
+    "discount": "19",
+    "size": ["S", "M", "L", "XL"],
+    "gender": "Female"
+}]

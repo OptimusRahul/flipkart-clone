@@ -1,0 +1,21 @@
+.header, .header--company, .header--btn { 
+    display: flex;
+}
+
+.header {
+    width: 100%;
+    height: 2rem;
+    justify-content: space-around;
+    background: #0000ff;
+    color: #fff;
+}
+
+.header--company {  
+    width: 6rem; 
+    justify-content: space-between; 
+}
+
+.header--btn {  
+    width: 15rem; 
+    justify-content: space-between; 
+}

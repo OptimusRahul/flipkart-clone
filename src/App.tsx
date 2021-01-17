@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { FC, useEffect, useState } from 'react';
+
+import Navbar from './components/navbar/navbar';
+import Sidebar from './components/sidebar/sidebar';
+import Showcase from './components/showcase/showcase';
+
+import { IProducts } from './types/product.types';
+import { apiFeatures } from './utils/apiFeatures';
 import './App.css';
 
-function App() {
+const App: FC = ():JSX.Element => {
+
+  const [ products, setProducts ] = useState<Array<IProducts>>([]);
+  const [ renderProductList, setRenderingProductList ] = useState<Array<IProducts>>([]);
+  const [ loading, setLoading ] = useState<Boolean>(true);
+
+  useEffect(() => {
+    console.log('useEffect');
+    const productAPIData = apiFeatures();
+    setTimeout(() => {
+      setLoading(false);
+      setProducts(productAPIData);
+      setRenderingProductList(productAPIData)
+    }, 2000);
+  }, []);
+
+  const setLoadingHandler: Function = (loading: Boolean) => setLoading(loading);
+
+  const setRenderingProductsHandler: Function = (data: Array<IProducts>) => {
+    setRenderingProductList(data);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Navbar />
+        <div className="main">
+          <Sidebar  
+            products={products}
+            renderProductList={renderProductList}
+            loading={loading} 
+            setRenderingProductsHandler={setRenderingProductsHandler} 
+            setLoadingHandler={setLoadingHandler} />
+          <Showcase products={renderProductList} loading={loading}/>
+        </div>
+        <div>Footer</div>
     </div>
   );
 }

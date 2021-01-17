@@ -1,0 +1,23 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
+
+li {
+    cursor: pointer;
+    list-style: none;
+}
+
+.sidebar--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar--header > button {
+    width: 90px;
+    height: 20px;
+    margin-right: 2px;
+}
