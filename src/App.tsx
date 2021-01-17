@@ -6,9 +6,8 @@ import Sidebar from './components/sidebar/sidebar';
 import Showcase from './components/showcase/showcase';
 
 import { getData } from './api';
-
 import { IProducts } from './types/product.types';
-import { apiFeatures } from './utils/apiFeatures';
+
 import './App.css';
 
 const productsAPIData: Array<IProducts> = getData();

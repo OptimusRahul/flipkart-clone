@@ -20,7 +20,7 @@ let filterBrands:Array<string> = [];
 let filterSizes: Array<Size> = [];
 let filterGender: Array<Gender> = [];
 
-const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler, renderProductList }: Props): JSX.Element => {
+const Sidebar: FC<Props> = ({ products, loading, setRenderingProductsHandler }: Props): JSX.Element => {
     const [ check, setCheck ] = useState<Boolean>();
 
     let brands = new Map();

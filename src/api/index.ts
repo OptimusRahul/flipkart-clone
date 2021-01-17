@@ -1,5 +1,3 @@
 import Data from '../db/fake.data.json';
 
-export const getData:Function = ():Array<{}>=> {
-    return Data;
-}
+export const getData:Function = ():Array<{}>=> Data;
