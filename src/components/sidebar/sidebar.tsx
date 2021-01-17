@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import { IProducts, Size, Gender } from '../../types/product.types';
 import { brandFilter, sizeFilter, genderFilter } from '../../utils/filterData';
